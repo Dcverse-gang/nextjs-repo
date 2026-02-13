@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CloneOS Frontend - Next.js
+
+A modern Next.js 16 frontend application for CloneOS, migrated from Create React App.
+
+## Features
+
+- **Next.js 16** with App Router
+- **TypeScript** for type safety
+- **Tailwind CSS** for styling
+- **shadcn/ui** components
+- **SEO optimized** with proper metadata
+- **Authentication** with protected routes
+- **Responsive design** with mobile-first approach
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- npm, yarn, or pnpm
+
+### Installation
 
 ```bash
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.local.example .env.local
+# Edit .env.local with your backend URLs
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to see the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create a `.env.local` file with:
 
-## Learn More
+```
+NEXT_PUBLIC_BACKEND_URL=http://localhost:3001
+NEXT_PUBLIC_CLONEOS_BACKEND_URL=http://localhost:3001
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+nextjs-repo/
+├── app/                    # Next.js App Router pages
+│   ├── page.tsx           # Landing page
+│   ├── login/             # Login page
+│   ├── signup/            # Sign up page
+│   ├── dashboard/         # Dashboard (protected)
+│   ├── waitlist/          # Waitlist page
+│   ├── layout.tsx         # Root layout
+│   └── globals.css        # Global styles
+├── components/            # React components
+│   └── ui/               # shadcn/ui components
+├── lib/                  # Utilities
+│   ├── api.ts            # API client
+│   ├── auth.ts           # Auth utilities
+│   └── utils.ts          # Helper functions
+├── hooks/                # Custom React hooks
+├── public/               # Static assets
+└── middleware.ts         # Route protection
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Pages
 
-## Deploy on Vercel
+- `/` - Landing page with features, testimonials, FAQ
+- `/login` - User login
+- `/signup` - User registration
+- `/dashboard` - Protected dashboard (requires auth)
+- `/waitlist` - Join waitlist form
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Authentication
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Authentication is handled client-side using localStorage. Protected routes check for authentication tokens and redirect to login if not authenticated.
+
+## Logo
+
+Replace `/public/logo.png` with your actual CloneOS logo.
+
+## Build
+
+```bash
+# Build for production
+npm run build
+
+# Start production server
+npm start
+```
+
+## Tech Stack
+
+- **Framework**: Next.js 16.1.6
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **UI Components**: Radix UI + shadcn/ui
+- **Icons**: Lucide React
+- **HTTP Client**: Axios
+- **Notifications**: Sonner
+- **Forms**: React Hook Form + Zod
+
+## Migration Notes
+
+This project was migrated from a Create React App (CRA) to Next.js. Key changes:
+
+- Converted React Router to Next.js App Router
+- Migrated all components to TypeScript
+- Updated routing to use Next.js Link and navigation
+- Converted environment variables from `REACT_APP_*` to `NEXT_PUBLIC_*`
+- Removed CRA-specific dependencies and configurations
+- Added SEO metadata and optimizations
+- Implemented proper client/server component separation
