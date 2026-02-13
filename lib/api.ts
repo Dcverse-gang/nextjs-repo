@@ -1,7 +1,9 @@
 import axios from "axios";
 
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:3001";
-const CLONEOS_BACKEND_URL = process.env.NEXT_PUBLIC_CLONEOS_BACKEND_URL || "http://localhost:3001";
+const BACKEND_URL =
+  process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:3001";
+const CLONEOS_BACKEND_URL =
+  process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:3001";
 const API = `${BACKEND_URL}/api`;
 const INFO_API = `${CLONEOS_BACKEND_URL}/public/info`;
 
@@ -26,7 +28,7 @@ apiClient.interceptors.request.use(
   },
   (error) => {
     return Promise.reject(error);
-  }
+  },
 );
 
 // Add response interceptor to handle errors
@@ -41,7 +43,7 @@ apiClient.interceptors.response.use(
       }
     }
     return Promise.reject(error);
-  }
+  },
 );
 
 export { apiClient, API, INFO_API };
