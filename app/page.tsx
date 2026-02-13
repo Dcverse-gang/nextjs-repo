@@ -84,7 +84,7 @@ const Navbar = () => {
     <nav
       data-testid="navbar"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "nav-sticky" : "bg-transparent"
+        isScrolled || mobileMenuOpen ? "nav-sticky" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -95,7 +95,7 @@ const Navbar = () => {
             className="flex items-center shrink-0 p-0 m-0 cursor-pointer"
             data-testid="logo-link"
           >
-            <Logo width={200} height={50} className="h-8 w-auto" priority />
+            <Logo width={200} height={50} className="h-6 sm:h-7 md:h-8 w-auto" priority />
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
@@ -159,7 +159,7 @@ const Navbar = () => {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div
-            className="md:hidden py-6 border-t border-border"
+            className="md:hidden py-6 border-t border-border mobile-menu-glass"
             data-testid="mobile-menu"
           >
             <div className="flex flex-col gap-4">
@@ -335,25 +335,25 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right Visual */}
+          {/* Right Visual: Phone cover on all screens */}
           <motion.div
-            className="relative flex justify-center lg:justify-end"
+            className="relative flex justify-center lg:justify-end w-full"
             variants={heroImage}
             initial="hidden"
             animate="visible"
           >
-            <div className="relative rounded-2xl overflow-hidden border border-border shadow-2xl w-full max-w-md">
-              <div className="aspect-[4/5] relative">
+            <div className="relative rounded-2xl overflow-hidden border border-border shadow-2xl w-full max-w-[280px] lg:max-w-[420px] mx-auto">
+              <div className="aspect-[2301/2846] relative">
                 <Image
-                  src="https://images.unsplash.com/photo-1676542592529-f19af3c3e856?w=600&h=700&fit=crop"
-                  alt="AI Clone Preview"
+                  src="/Phone-CoverPhone.png"
+                  alt="CloneOS"
                   fill
                   className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  sizes="(max-width: 1024px) 280px, 420px"
                   quality={90}
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent pointer-events-none" />
               </div>
             </div>
           </motion.div>
@@ -560,27 +560,32 @@ const HowItWorks = () => {
 const PARTNER_LOGOS = [
   {
     name: "NVIDIA",
-    logoUrl: "https://toppng.com/uploads/preview/nvidia-logo-vector-11574170524xza1ggbhhk.png",
+    logoUrl:
+      "https://toppng.com/uploads/preview/nvidia-logo-vector-11574170524xza1ggbhhk.png",
     subtitle: "AI & Compute",
   },
   {
     name: "ByteDance",
-    logoUrl: "https://upload.wikimedia.org/wikipedia/commons/a/ad/ByteDance_logo.png",
+    logoUrl:
+      "https://upload.wikimedia.org/wikipedia/commons/a/ad/ByteDance_logo.png",
     subtitle: "AI & Media",
   },
   {
     name: "AWS",
-    logoUrl: "https://www.logo.wine/a/logo/Amazon_Web_Services/Amazon_Web_Services-Logo.wine.svg",
+    logoUrl:
+      "https://www.logo.wine/a/logo/Amazon_Web_Services/Amazon_Web_Services-Logo.wine.svg",
     subtitle: "Cloud",
   },
   {
     name: "Google Cloud",
-    logoUrl: "https://purepng.com/public/uploads/large/google-cloud-logo-75o.png",
+    logoUrl:
+      "https://purepng.com/public/uploads/large/google-cloud-logo-75o.png",
     subtitle: "GCP",
   },
   {
     name: "Nexus",
-    logoUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrHpNSRhHUTVr6ZH2COo0B8c5ctxcBNBezIw&s",
+    logoUrl:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrHpNSRhHUTVr6ZH2COo0B8c5ctxcBNBezIw&s",
     subtitle: "American Center",
   },
   {
@@ -641,7 +646,10 @@ const TechPartners = () => {
                           const t = e.target as HTMLImageElement;
                           t.style.display = "none";
                           const wrap = t.closest(".relative");
-                          if (wrap && !wrap.querySelector(".partner-fallback")) {
+                          if (
+                            wrap &&
+                            !wrap.querySelector(".partner-fallback")
+                          ) {
                             const fallback = document.createElement("span");
                             fallback.className =
                               "partner-fallback font-heading font-semibold text-foreground text-lg";
@@ -783,7 +791,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Logo & Description */}
           <div className="md:col-span-2 flex flex-col gap-8">
-            <Logo width={200} height={50} className="h-8 w-auto" />
+            <Logo width={200} height={50} className="h-6 sm:h-7 md:h-8 w-auto" />
             <p className="text-foreground/70 max-w-sm mt-0">
               The platform for creating, controlling, and monetizing your AI
               likeness with complete transparency.

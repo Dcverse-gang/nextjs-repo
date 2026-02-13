@@ -16,6 +16,7 @@ export default function Waitlist() {
     name: "",
     email: "",
     company: "",
+    phone: "",
     message: "",
   });
 
@@ -36,7 +37,8 @@ export default function Waitlist() {
       await axios.post(INFO_API, {
         fullName: formData.name,
         email: formData.email,
-        company: formData.company || undefined,
+        company: formData.company,
+        phoneNumber: formData.phone,
         useCase: formData.message || undefined,
       });
       setSubmitted(true);
@@ -93,7 +95,7 @@ export default function Waitlist() {
 
         <div className="max-w-md">
           <div className="mb-6">
-            <Logo width={200} height={50} className="h-8 w-auto" priority />
+            <Logo width={200} height={50} className="h-6 sm:h-7 md:h-8 w-auto" priority />
           </div>
           <h1
             className="font-heading text-3xl md:text-4xl font-bold tracking-tight mb-4 text-foreground"
@@ -139,16 +141,33 @@ export default function Waitlist() {
 
             <div>
               <label className="text-sm font-medium text-foreground mb-2 block">
-                Company (Optional)
+                Company *
               </label>
               <input
                 type="text"
                 name="company"
                 value={formData.company}
                 onChange={handleChange}
+                required
                 className="input-modern"
                 placeholder="Your company"
                 data-testid="waitlist-company-input"
+              />
+            </div>
+
+            <div>
+              <label className="text-sm font-medium text-foreground mb-2 block">
+                Phone Number *
+              </label>
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+                className="input-modern"
+                placeholder="1234567890"
+                data-testid="waitlist-phone-input"
               />
             </div>
 
@@ -242,8 +261,8 @@ export default function Waitlist() {
 
           <div className="card bg-card/50 backdrop-blur-sm border-border">
             <p className="text-sm text-foreground/60 mb-2">Current waitlist</p>
-            <p className="font-heading text-4xl font-bold text-foreground">8,432</p>
-            <p className="text-foreground/60">people ahead of you</p>
+            <p className="font-heading text-4xl font-bold text-foreground">356</p>
+            <p className="text-foreground/60">people on the list</p>
           </div>
         </div>
       </div>

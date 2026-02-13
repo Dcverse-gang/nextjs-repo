@@ -66,7 +66,7 @@ export default function Login() {
         </Link>
 
         <div className="max-w-md">
-          <Logo width={200} height={50} className="h-8 w-auto mb-8" priority />
+          <Logo width={200} height={50} className="h-6 sm:h-7 md:h-8 w-auto mb-8" priority />
           <h1
             className="font-heading text-3xl md:text-4xl font-bold tracking-tight mb-4 text-foreground"
             data-testid="login-title"

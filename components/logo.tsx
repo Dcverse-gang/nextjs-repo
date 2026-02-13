@@ -9,7 +9,12 @@ interface LogoProps {
   priority?: boolean;
 }
 
-export function Logo({ width = 200, height = 50, className = "", priority = false }: LogoProps) {
+export function Logo({
+  width = 200,
+  height = 50,
+  className = "",
+  priority = false,
+}: LogoProps) {
   return (
     <div className={`relative flex items-center ${className} logo-container`}>
       <Image
@@ -17,7 +22,7 @@ export function Logo({ width = 200, height = 50, className = "", priority = fals
         alt="CloneOS"
         width={width}
         height={height}
-        className="h-auto block"
+        className="h-full w-auto block object-contain"
         quality={100}
         priority={priority}
       />

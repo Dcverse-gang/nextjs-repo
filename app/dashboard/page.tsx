@@ -131,7 +131,7 @@ export default function Dashboard() {
       >
         <div className="p-6 border-b border-border">
           <Link href="/">
-            <Logo width={200} height={50} className="h-6 w-auto" />
+            <Logo width={200} height={50} className="h-5 sm:h-6 w-auto" />
           </Link>
         </div>
 
@@ -176,7 +176,7 @@ export default function Dashboard() {
         >
           <div className="flex items-center justify-between">
             <div className="md:hidden">
-              <Logo width={200} height={50} className="h-6 w-auto" />
+              <Logo width={200} height={50} className="h-5 sm:h-6 w-auto" />
             </div>
             <h1 className="hidden md:block font-heading text-xl font-bold text-foreground">
               Dashboard

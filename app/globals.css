@@ -67,7 +67,8 @@
     );
 
   /* Modern Shadows - Subtle & Refined */
-  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px -1px rgba(0, 0, 0, 0.2);
+  --shadow-sm:
+    0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px -1px rgba(0, 0, 0, 0.2);
   --shadow-md:
     0 4px 6px -1px rgba(0, 0, 0, 0.35), 0 2px 4px -2px rgba(0, 0, 0, 0.25);
   --shadow-lg:
@@ -330,7 +331,8 @@ small {
 
 /* Gradient Text Effect */
 .gradient-text {
-  background: var(--gradient-primary);
+  background: linear-gradient(90deg, #ff5fa2 0%, #c86bff 50%, #5aa2ff 100%);
+
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -386,14 +388,19 @@ small {
 .btn-primary {
   background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
   color: #ffffff;
-  box-shadow: 0 4px 15px 0 rgba(99, 102, 241, 0.4), 0 0 20px rgba(139, 92, 246, 0.1);
+  box-shadow:
+    0 4px 15px 0 rgba(99, 102, 241, 0.4),
+    0 0 20px rgba(139, 92, 246, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .btn-primary:hover {
   background: linear-gradient(135deg, #5558e3 0%, #7c48e8 100%);
   color: #ffffff;
-  box-shadow: 0 8px 25px 0 rgba(99, 102, 241, 0.5), 0 0 30px rgba(139, 92, 246, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  box-shadow:
+    0 8px 25px 0 rgba(99, 102, 241, 0.5),
+    0 0 30px rgba(139, 92, 246, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
   transform: translateY(-2px);
 }
 
@@ -407,14 +414,18 @@ small {
   color: #f5f5f7;
   border: 1px solid rgba(99, 102, 241, 0.3);
   backdrop-filter: blur(10px);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 4px 30px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .btn-secondary:hover {
   background: rgba(99, 102, 241, 0.15);
   color: #ffffff;
   border-color: rgba(99, 102, 241, 0.6);
-  box-shadow: 0 8px 40px rgba(99, 102, 241, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  box-shadow:
+    0 8px 40px rgba(99, 102, 241, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
   transform: translateY(-2px);
 }
 
@@ -520,7 +531,7 @@ small {
   border: 1px solid rgba(99, 102, 241, 0.1);
   border-radius: var(--radius);
   padding: 1.5rem;
-  box-shadow: 
+  box-shadow:
     0 8px 32px 0 rgba(31, 38, 135, 0.37),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -535,7 +546,11 @@ small {
   right: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(99, 102, 241, 0.1) 0%,
+    transparent 70%
+  );
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
@@ -548,20 +563,24 @@ small {
 .card:hover {
   background: rgba(26, 26, 46, 0.6);
   border-color: rgba(99, 102, 241, 0.2);
-  box-shadow: 
+  box-shadow:
     0 12px 48px 0 rgba(31, 38, 135, 0.45),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
   transform: translateY(-4px);
 }
 
 .card-elevated {
-  box-shadow: 
+  box-shadow:
     0 20px 60px 0 rgba(31, 38, 135, 0.5),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .card-gradient {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.1) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.15) 0%,
+    rgba(139, 92, 246, 0.1) 100%
+  );
   border-color: rgba(99, 102, 241, 0.2);
 }
 
@@ -624,7 +643,7 @@ small {
   outline: none;
   border-color: var(--primary);
   background: rgba(37, 37, 66, 0.7);
-  box-shadow: 
+  box-shadow:
     0 0 0 3px rgba(99, 102, 241, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
@@ -669,6 +688,11 @@ small {
   backdrop-filter: blur(20px);
   background: rgba(10, 10, 10, 0.8);
   border-bottom: 1px solid var(--border-subtle);
+}
+
+.mobile-menu-glass {
+  backdrop-filter: blur(20px);
+  background: rgba(10, 10, 10, 0.8);
 }
 
 /* ============================================
@@ -776,7 +800,8 @@ small {
 
 /* Floating & Movement */
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -785,7 +810,8 @@ small {
 }
 
 @keyframes float-slow {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(0, 0) scale(1);
   }
   33% {
@@ -797,7 +823,8 @@ small {
 }
 
 @keyframes float-orb {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(0, 0) scale(1);
   }
   25% {
@@ -812,7 +839,8 @@ small {
 }
 
 @keyframes float-orb-2 {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(0, 0) scale(1);
   }
   25% {
@@ -850,7 +878,8 @@ small {
 
 /* Glow Effects */
 @keyframes glow-pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.5;
     filter: blur(60px);
     transform: scale(1);
@@ -863,11 +892,16 @@ small {
 }
 
 @keyframes glow-bright {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(99, 102, 241, 0.3), inset 0 0 20px rgba(99, 102, 241, 0.1);
+  0%,
+  100% {
+    box-shadow:
+      0 0 20px rgba(99, 102, 241, 0.3),
+      inset 0 0 20px rgba(99, 102, 241, 0.1);
   }
   50% {
-    box-shadow: 0 0 40px rgba(99, 102, 241, 0.5), inset 0 0 30px rgba(99, 102, 241, 0.2);
+    box-shadow:
+      0 0 40px rgba(99, 102, 241, 0.5),
+      inset 0 0 30px rgba(99, 102, 241, 0.2);
   }
 }
 
@@ -924,7 +958,8 @@ small {
 }
 
 @keyframes pulse-subtle {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
@@ -954,7 +989,8 @@ small {
 
 /* Glitch Effect */
 @keyframes glitch {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(0);
   }
   20% {
@@ -1097,7 +1133,11 @@ small {
 .hero-orb-1 {
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(99, 102, 241, 0.3) 0%,
+    transparent 70%
+  );
   top: -100px;
   right: -100px;
   animation: float-orb 20s ease-in-out infinite;
@@ -1106,7 +1146,11 @@ small {
 .hero-orb-2 {
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(139, 92, 246, 0.25) 0%,
+    transparent 70%
+  );
   bottom: -50px;
   left: -100px;
   animation: float-orb-2 25s ease-in-out infinite;
@@ -1115,7 +1159,11 @@ small {
 .hero-orb-3 {
   width: 350px;
   height: 350px;
-  background: radial-gradient(circle, rgba(236, 72, 153, 0.2) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(236, 72, 153, 0.2) 0%,
+    transparent 70%
+  );
   top: 50%;
   left: 30%;
   animation: float-slow 15s ease-in-out infinite;
@@ -1151,12 +1199,16 @@ small {
 
 /* Card hover lift + glow (AI SaaS style) */
 .card-hover-lift {
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s ease;
 }
 
 .card-hover-lift:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  box-shadow:
+    0 20px 40px -12px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.04);
 }
 
 /* ============================================
