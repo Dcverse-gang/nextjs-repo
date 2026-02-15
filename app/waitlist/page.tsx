@@ -9,7 +9,7 @@ import { Logo } from "@/components/logo";
 
 // Initialize Supabase Client directly
 const supabaseUrl = "https://jlfvhhdjpdbiylyvseqd.supabase.co";
-const supabaseAnonKey = "sb_publishable_sDMnE3sWNRVKdwMkSGDZqA_hJoRrM_c";
+const supabaseAnonKey = "sb_publishable_sDMnE3sWNRVKdwMkSGDZqA_hJoRrM_c"; 
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 export default function Waitlist() {
