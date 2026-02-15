@@ -14,7 +14,7 @@ const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 export default function Waitlist() {
   const [loading, setLoading] = useState(false);
-  const [submitted, setSubmitted] = useState(false); 
+  const [submitted, setSubmitted] = useState(false);  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
