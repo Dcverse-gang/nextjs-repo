@@ -3,11 +3,14 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Send, Check, Sparkles, TrendingUp, Zap } from "lucide-react";
-import axios from "axios";
+import { createClient } from "@supabase/supabase-js";
 import { toast } from "sonner";
-import { INFO_API } from "@/lib/api";
-import { getErrorMessage } from "@/lib/types";
 import { Logo } from "@/components/logo";
+
+// Initialize Supabase Client directly
+const supabaseUrl = "https://jlfvhhdjpdbiylyvseqd.supabase.co";
+const supabaseAnonKey = "sb_publishable_sDMnE3sWNRVKdwMkSGDZqA_hJoRrM_c";
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 export default function Waitlist() {
   const [loading, setLoading] = useState(false);
@@ -34,18 +37,31 @@ export default function Waitlist() {
     setLoading(true);
 
     try {
-      await axios.post(INFO_API, {
-        fullName: formData.name,
-        email: formData.email,
-        company: formData.company,
-        phoneNumber: formData.phone,
-        useCase: formData.message || undefined,
-      });
+      // Use direct Supabase insert instead of axios
+      const { error } = await supabase
+        .from('waitlist')
+        .insert([
+          { 
+            full_name: formData.name, 
+            email: formData.email, 
+            company: formData.company,
+            phone_number: formData.phone,
+            use_case: formData.message || null 
+          }
+        ]);
+
+      if (error) {
+        // Handle unique constraint violation for existing emails
+        if (error.code === '23505') {
+          throw new Error("This email is already on the waitlist.");
+        }
+        throw error;
+      }
+
       setSubmitted(true);
       toast.success("You're on the list!");
-    } catch (error) {
-      const message = getErrorMessage(error, "Failed to join waitlist");
-      toast.error(message);
+    } catch (error: any) {
+      toast.error(error.message || "Failed to join waitlist");
     } finally {
       setLoading(false);
     }
