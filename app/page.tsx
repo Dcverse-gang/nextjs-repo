@@ -136,11 +136,11 @@ const Navbar = () => {
           {/* Right Side Actions */}
           <div className="hidden md:flex items-center gap-4">
             <Link
-              href="/waitlist"
+              href="https://dcverse.in"
               className="btn btn-primary"
               data-testid="nav-waitlist"
             >
-              Join Waitlist
+              Visit DCVerse
             </Link>
           </div>
 
@@ -192,8 +192,8 @@ const Navbar = () => {
                 FAQ
               </a>
               <div className="flex flex-col gap-3 mt-4">
-                <Link href="/waitlist" className="btn btn-primary text-center">
-                  Join Waitlist
+                <Link href="https://dcverse.in" className="btn btn-primary text-center">
+                  Visit DCVerse
                 </Link>
               </div>
             </div>
