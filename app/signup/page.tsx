@@ -20,6 +20,7 @@ export default function SignUp() {
     password: "",
   });
 
+  
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData((prev) => ({
       ...prev,
